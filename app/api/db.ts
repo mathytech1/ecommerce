@@ -1,7 +1,7 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { MongoClient, Db, ServerApiVersion } from "mongodb";
 
 let cachedClient: MongoClient | null = null;
-let cachedDb: any | null = null;
+let cachedDb: Db | null = null;
 
 export async function connectToDb() {
   if (cachedClient && cachedDb) {

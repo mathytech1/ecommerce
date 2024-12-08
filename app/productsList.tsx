@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "./product-data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+export const dynamic = "force-dynamic";
 
 export default function ProductsList({
   products,
@@ -16,7 +18,7 @@ export default function ProductsList({
 
   async function addToCart(productId: string) {
     const response = await fetch(
-      "process.env.NEXT_PUBLIC_SITE_URL /api/users/1/cart",
+      process.env.NEXT_PUBLIC_SITE_URL + "/api/users/1/cart",
       {
         method: "POST",
         body: JSON.stringify({ productId }),
@@ -25,7 +27,7 @@ export default function ProductsList({
         },
       }
     );
-    const updatedCartProducts = await response.json();
+    // const updatedCartProducts = await response.json();
     // setCartProducts(updatedCartProducts);
     setCartProducts((prevCartProducts) =>
       prevCartProducts.filter((product) => product.id !== productId)
@@ -34,7 +36,7 @@ export default function ProductsList({
 
   async function removeFromCart(productId: string) {
     const response = await fetch(
-      "process.env.NEXT_PUBLIC_SITE_URL /api/users/1/cart",
+      process.env.NEXT_PUBLIC_SITE_URL + "/api/users/1/cart",
       {
         method: "DELETE",
         body: JSON.stringify({ productId }),
@@ -43,7 +45,7 @@ export default function ProductsList({
         },
       }
     );
-    const updatedCartProducts = await response.json();
+    // const updatedCartProducts = await response.json();
     setCartProducts((prevCartProducts) =>
       prevCartProducts.filter((product) => product.id !== productId)
     );

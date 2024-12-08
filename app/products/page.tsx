@@ -1,8 +1,10 @@
 import ProductsList from "../productsList";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductsPage() {
   const response = await fetch(
-    "process.env.NEXT_PUBLIC_SITE_URL /api/products",
+    process.env.NEXT_PUBLIC_SITE_URL + "/api/products",
     {
       cache: "no-cache",
     }
@@ -10,7 +12,7 @@ export default async function ProductsPage() {
   const products = await response.json();
 
   const response2 = await fetch(
-    "process.env.NEXT_PUBLIC_SITE_URL /api/users/1/cart",
+    process.env.NEXT_PUBLIC_SITE_URL + "/api/users/1/cart",
     {
       cache: "no-cache",
     }

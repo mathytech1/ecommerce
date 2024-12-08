@@ -5,12 +5,6 @@ import { ReturnDocument } from "mongodb";
 
 type ShoppingCart = Record<string, string[]>;
 
-const carts: ShoppingCart = {
-  "1": ["123", "234"],
-  "2": ["345", "456"],
-  "3": ["234"],
-};
-
 type Params = {
   id: string;
 };

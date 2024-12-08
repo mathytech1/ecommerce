@@ -13,7 +13,7 @@ export default function ShoppingCartList({
 
   async function removeFromCart(productId: string) {
     const response = await fetch(
-      "process.env.NEXT_PUBLIC_SITE_URL /api/users/1/cart",
+      process.env.NEXT_PUBLIC_SITE_URL + "/api/users/1/cart",
       {
         method: "DELETE",
         body: JSON.stringify({ productId }),
@@ -22,7 +22,7 @@ export default function ShoppingCartList({
         },
       }
     );
-    const updatedCartProducts = await response.json();
+    // const updatedCartProducts = await response.json();
     setCartProducts((prevCartProducts) =>
       prevCartProducts.filter((product) => product.id !== productId)
     );

@@ -18,6 +18,7 @@ export default async function ProductsPage() {
     }
   );
   const cartProducts = await response2.json();
+
   return (
     <>
       <div className="container flex flex-col mx-auto px-4 py-8">
